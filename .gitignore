@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+myenv/
+
+# Vector DB
+Fetching/vector_store/
+
+# Temp files
+temp.pdf
+
+# Node
+node_modules/
+dist/
+
+# Env files
+.env
+
+# Logs
+*.log
+
+.env
