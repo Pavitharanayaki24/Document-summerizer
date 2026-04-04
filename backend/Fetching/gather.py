@@ -8,9 +8,6 @@ from langchain_community.document_loaders import Docx2txtLoader
 from langchain_community.document_loaders import TextLoader
 from langchain_community.document_loaders import CSVLoader
 
-
-import os
-
 def load_document(file_path):
     ext = os.path.splitext(file_path)[1].lower()
 

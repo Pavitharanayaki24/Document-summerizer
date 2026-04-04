@@ -2,6 +2,8 @@
 __pycache__/
 *.pyc
 myenv/
+.venv/
+venv/
 
 # Vector DB
 Fetching/vector_store/
