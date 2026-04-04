@@ -4,7 +4,7 @@ from Fetching.query import ask_question
 
 import os
 from Fetching.query import ask_question
-from Fetching.gather import load_pdf, chunk_documents, create_embeddings
+from Fetching.gather import load_document, chunk_documents, create_embeddings
 from langchain_community.vectorstores import FAISS
 
 
@@ -29,10 +29,11 @@ def upload_pdf():
         return jsonify({"error": "Empty file"}), 400
 
     try:
-        temp_path = "temp.pdf"
+        filename = file.filename
+        temp_path = f"temp_{filename}"
         file.save(temp_path)
 
-        documents = load_pdf(temp_path)
+        documents = load_document(temp_path)
         chunks = chunk_documents(documents)
         embeddings = create_embeddings()
 

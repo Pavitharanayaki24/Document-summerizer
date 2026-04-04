@@ -2,13 +2,38 @@ from langchain_community.document_loaders import PyPDFLoader # type: ignore
 from langchain_text_splitters import RecursiveCharacterTextSplitter # type: ignore
 from langchain_community.embeddings import HuggingFaceEmbeddings # type: ignore
 from langchain_community.vectorstores import FAISS # type: ignore
+import os
+
+from langchain_community.document_loaders import Docx2txtLoader
+from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import CSVLoader
 
 
+import os
 
-def load_pdf(file_path):
-    loader = PyPDFLoader(file_path)
+def load_document(file_path):
+    ext = os.path.splitext(file_path)[1].lower()
+
+    if ext == ".pdf":
+        loader = PyPDFLoader(file_path)
+        
+
+    elif ext == ".docx":
+        loader = Docx2txtLoader(file_path)
+
+    elif ext == ".txt":
+        loader = TextLoader(file_path)
+
+    elif ext == ".csv":
+        loader = CSVLoader(file_path)
+
+    else:
+        raise ValueError("Unsupported file format")
+
     documents = loader.load()
     return documents
+
+
 
 def chunk_documents(documents):
     splitter = RecursiveCharacterTextSplitter(
@@ -33,8 +58,8 @@ def ingest_pipeline():
     
     file_path = r"P:\HR-policy bot\backend\fruitsandvegetable.pdf"
 
-    print("Loading PDF")
-    documents = load_pdf(file_path)
+    print("Loading document")
+    documents = load_document(file_path)
 
     print("Chunking documents")
     chunks = chunk_documents(documents)

@@ -56,12 +56,12 @@ function App() {
         <div style={styles.uploadSection}>
           <input
             type="file"
-            accept="application/pdf"
+            accept=".pdf,.docx,.txt,.csv"
             onChange={(e) => setFile(e.target.files[0])}
           />
 
           <button onClick={uploadFile} style={styles.uploadButton}>
-            Upload PDF
+            Upload Document
           </button>
 
           <p style={styles.status}>{uploadStatus}</p>
