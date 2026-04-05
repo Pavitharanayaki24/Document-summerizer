@@ -1,14 +1,3 @@
 {
-  "documents": [
-    {
-      "doc_id": "3b5cd490679f4ce488d7d19170c96f29",
-      "filename": "syl.txt",
-      "added_at": "2026-04-05T10:20:02.172534+00:00"
-    },
-    {
-      "doc_id": "af33cfe0fbba4934a4084d321af2c552",
-      "filename": "fruitsandvegetable.docx",
-      "added_at": "2026-04-05T10:20:02.256050+00:00"
-    }
-  ]
+  "documents": []
 }
