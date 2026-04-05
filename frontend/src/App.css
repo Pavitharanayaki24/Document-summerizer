@@ -721,7 +721,7 @@ body {
   }
 }
 
-/* Multi-file upload list */
+/* Multi-file upload & compare UI */
 .file-list {
   list-style: none;
   margin: 0.75rem 0 0;
